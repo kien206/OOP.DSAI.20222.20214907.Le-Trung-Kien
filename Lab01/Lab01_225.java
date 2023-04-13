@@ -1,4 +1,3 @@
-package Lab01;
 import javax.swing.JOptionPane;
 public class Lab01_225 {
     public static void main(String[] args) {

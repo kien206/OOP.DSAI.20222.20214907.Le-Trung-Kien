@@ -15,5 +15,6 @@ public class Lab01_62 {
         double height = sc.nextDouble();
 
         System.out.println("Mrs/Mr." + name + ", " + age + " years old. " + "Your height is " + height + ".");
+        sc.close();
     }
 }

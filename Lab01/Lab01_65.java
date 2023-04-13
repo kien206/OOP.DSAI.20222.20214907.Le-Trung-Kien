@@ -1,4 +1,3 @@
-package Lab01;
 import java.util.Scanner;
 
 public class Lab01_65 {
@@ -30,6 +29,7 @@ public class Lab01_65 {
         }
         avg = sum/n;
         System.out.println("\nArray sum: " + sum + "\n" + "Array average: " + avg);
+        sc.close();
     }
     
 }

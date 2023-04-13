@@ -1,4 +1,3 @@
-
 import javax.swing.JOptionPane;
 public class Lab01_226 {
     public static void main(String[] args) {

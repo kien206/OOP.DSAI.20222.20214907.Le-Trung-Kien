@@ -1,4 +1,3 @@
-package Lab01;
 import java.util.Scanner;
 
 public class Lab01_66 {
@@ -38,6 +37,7 @@ public class Lab01_66 {
             }
             System.out.println();
         }
+        sc.close();
     }
     
 }
