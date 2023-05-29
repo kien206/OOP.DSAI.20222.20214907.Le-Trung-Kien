@@ -1,10 +1,11 @@
+package hust.soict.dsai.aims.disc;
 public class DigitalVideoDisc {
     private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
-    int id;
+    public int id;
     private static int nbDigitalVideoDisc = 0;
     
     public void setTitle(String title) {
