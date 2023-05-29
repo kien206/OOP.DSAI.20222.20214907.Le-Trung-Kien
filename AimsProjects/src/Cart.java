@@ -1,6 +1,6 @@
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+    protected DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
     protected int qtyOrderd = 0;
     
     public void addDigitalVideoDisc (DigitalVideoDisc disc) {
@@ -66,6 +66,45 @@ public class Cart {
             }
         }
         return cost;
+    }
+
+    public void printList() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Items ordered: ");
+        for (DigitalVideoDisc dvd: itemsOrdered) {
+            if (dvd != null) {
+                System.out.println(dvd.id + ". " + dvd.toString());
+            }
+          
+        }
+        System.out.println("Total cost: " + totalCost());
+        System.out.println("***************************************************");
+    }
+
+    public void searchById(int idToMatch) {
+        boolean dvdFound = false;
+        for (DigitalVideoDisc dvd: itemsOrdered) {
+            if (dvd.id == idToMatch) {
+                dvd.toString();
+                dvdFound = true;
+            }
+        }
+        if (dvdFound == false) {
+            System.out.println("Item not found.");
+        } 
+    }
+
+    public void searchByTitle(String titleToMatch) {
+        boolean dvdFound = false;
+        for (DigitalVideoDisc dvd:itemsOrdered) {
+            if (dvd.isMatch(titleToMatch)) {
+                dvd.toString();
+                dvdFound = true;
+            }
+        }
+        if (dvdFound == false) {
+            System.out.println("Item not found.");
+        }
     }
 }
 
