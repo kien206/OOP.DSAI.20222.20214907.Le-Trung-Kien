@@ -1,72 +1,31 @@
 package hust.soict.dsai.aims.cart;
+import java.util.ArrayList;
+import java.util.List;
+
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    protected DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-    protected int qtyOrderd = 0;
-    
-    public void addDigitalVideoDisc (DigitalVideoDisc disc) {
-        for (int i=0; i<MAX_NUMBERS_ORDERED; i++) {
-            if (itemsOrdered[i] == null) {
-                itemsOrdered[i] = disc;
-                qtyOrderd += 1;
-                System.out.println("The disc has been added.");
-                break;
-            }
-            if ((i == itemsOrdered.length -1) && (itemsOrdered[i] != null)) {
-                System.out.println("The cart is full.");
-                break;
-            }
+    private List<Media> itemsOrdered = new ArrayList<Media>();
+    private List<Media> cartList = new ArrayList<Media>();
+
+    public void addMedia(Media media) {
+        if (!cartList.contains(media)) {
+            cartList.add(media);
         }
     }
 
-    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
-
-        for (DigitalVideoDisc dvd : dvdList) {
-            for (int i=0; i<MAX_NUMBERS_ORDERED; i++) {
-                if (itemsOrdered[i] == null) {
-                    itemsOrdered[i] = dvd;
-                    qtyOrderd += 1;
-                    System.out.println("The disc has been added.");
-                }
-            }
-        }
-    }
-
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-        for (int i=0; i<MAX_NUMBERS_ORDERED; i++) {
-            if (itemsOrdered[i] == null) {
-                itemsOrdered[i] = dvd1;
-                if ((i+1) <= MAX_NUMBERS_ORDERED) {
-                    itemsOrdered[i+1] = dvd2;    
-                }
-                else {
-                    System.out.println("The cart is full.");
-                }
-            }
-        }
-    }
-
-    public void removeDigitalVideoDisc (DigitalVideoDisc disc) {
-        for (int i=0; i<MAX_NUMBERS_ORDERED; i++) {
-            if (itemsOrdered[i] == disc) {
-                itemsOrdered[i] = null;
-                qtyOrderd -= 1;
-                System.out.println("The disc has been removed.");
-                break;
-            } else {
-                System.out.println("Disc not found.");
-            }
+    public void removeMedia(Media media) {
+        if (cartList.contains(media)) {
+            cartList.remove(media);
         }
     }
 
     public float totalCost() {
         float cost = 0; 
-        for (int i=0; i<MAX_NUMBERS_ORDERED; i++) {
-            if (itemsOrdered[i] != null) {
-                cost += itemsOrdered[i].getCost();
-            }
+        for (Media media: itemsOrdered) {
+            cost += media.getCost();
         }
         return cost;
     }
@@ -74,7 +33,7 @@ public class Cart {
     public void printList() {
         System.out.println("***********************CART***********************");
         System.out.println("Items ordered: ");
-        for (DigitalVideoDisc dvd: itemsOrdered) {
+        for (Media dvd: itemsOrdered) {
             if (dvd != null) {
                 System.out.println(dvd.getId() + ". " + dvd.toString());
             }
@@ -86,7 +45,7 @@ public class Cart {
 
     public void searchById(int idToMatch) {
         boolean dvdFound = false;
-        for (DigitalVideoDisc dvd: itemsOrdered) {
+        for (Media dvd: itemsOrdered) {
             if (dvd.getId() == idToMatch) {
                 dvd.toString();
                 dvdFound = true;
@@ -99,8 +58,8 @@ public class Cart {
 
     public void searchByTitle(String titleToMatch) {
         boolean dvdFound = false;
-        for (DigitalVideoDisc dvd:itemsOrdered) {
-            if (dvd.isMatch(titleToMatch)) {
+        for (Media dvd:itemsOrdered) {
+            if (((DigitalVideoDisc) dvd).isMatch(titleToMatch)) {
                 dvd.toString();
                 dvdFound = true;
             }
