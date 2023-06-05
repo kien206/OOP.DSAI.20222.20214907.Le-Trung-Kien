@@ -1,8 +1,9 @@
 package hust.soict.dsai.aims.disc;
 
 import hust.soict.dsai.aims.media.Disc;
+import hust.soict.dsai.aims.media.Playable;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
     private String director;
     private int length;
     private static int nbDigitalVideoDisc = 0;
@@ -52,6 +53,13 @@ public class DigitalVideoDisc extends Disc {
 
     public boolean isMatch(String titleToCompare) {
         return this.getTitle().equalsIgnoreCase(titleToCompare);
+    }
+
+    @Override
+    public void play() {
+        // TODO Auto-generated method stub
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
     }
     
 }
