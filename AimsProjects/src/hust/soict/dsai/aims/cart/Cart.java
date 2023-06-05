@@ -76,7 +76,7 @@ public class Cart {
         System.out.println("Items ordered: ");
         for (DigitalVideoDisc dvd: itemsOrdered) {
             if (dvd != null) {
-                System.out.println(dvd.id + ". " + dvd.toString());
+                System.out.println(dvd.getId() + ". " + dvd.toString());
             }
           
         }
@@ -87,7 +87,7 @@ public class Cart {
     public void searchById(int idToMatch) {
         boolean dvdFound = false;
         for (DigitalVideoDisc dvd: itemsOrdered) {
-            if (dvd.id == idToMatch) {
+            if (dvd.getId() == idToMatch) {
                 dvd.toString();
                 dvdFound = true;
             }
