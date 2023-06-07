@@ -1,10 +1,14 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Media {
     private int id;
     private String title;
     private String category;
     private float cost;
+    List<Media> mediae = new ArrayList<Media>();
 
     public int getId() {
         return id;
@@ -31,5 +35,17 @@ public abstract class Media {
         this.cost = cost;
     }
 
-    
+    public boolean equals(Object obj) {
+        
+        if (obj instanceof Media) {
+            Media media = (Media) obj;
+            return media.getTitle() == this.getTitle();
+        } else {
+            return false;
+        }
+        
+    }
+    public String toString() {
+        return this.getId() + ". " + this.getTitle() + " - " + this.getCategory() + " - " + this.getCost();
+    }
 }

@@ -19,6 +19,13 @@ public class Track implements Playable {
         this.title = title;
         this.length = length;
     }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Track) {
+            Track track = (Track) obj;
+            return (track.getTitle() == this.getTitle() && track.getLength() == this.getLength());
+        } else {return false;}
+    }
     @Override
     public void play() {
         // TODO Auto-generated method stub
