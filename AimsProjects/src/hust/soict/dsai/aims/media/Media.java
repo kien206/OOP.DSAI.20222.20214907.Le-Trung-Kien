@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public abstract class Media {
@@ -9,6 +10,8 @@ public abstract class Media {
     protected String category;
     protected float cost;
     List<Media> mediae = new ArrayList<Media>();
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
     public int getId() {
         return id;
@@ -45,7 +48,9 @@ public abstract class Media {
         }
         
     }
+
     public String toString() {
         return this.getId() + ". " + this.getTitle() + " - " + this.getCategory() + " - " + this.getCost();
     }
+
 }

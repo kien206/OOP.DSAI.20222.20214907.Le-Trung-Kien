@@ -7,6 +7,7 @@ import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.MediaComparatorByCostTitle;
 import hust.soict.dsai.aims.media.Track;
 
 public class Aims {
@@ -14,19 +15,24 @@ public class Aims {
         // Create new cart
         Cart anOrder = new Cart();
 
+        List<Media> test = new ArrayList<Media>();
+
         // Create new DVD
         Media dvd1 = new DigitalVideoDisc("The Lion King", 
         "Animation", "Roger Allers", 87, 19.95f);
         anOrder.addMedia(dvd1);
+        test.add(dvd1);
 
         Media dvd2 = new DigitalVideoDisc("Star Wars", 
         "Science Fiction", "George Lucas", 87, 24.95f);
         anOrder.addMedia(dvd2);
+        test.add(dvd2);
 
         Media dvd3 = new DigitalVideoDisc("Aladin",
         "Animation", 18.99f);
         anOrder.addMedia(dvd3);
-
+        test.add(dvd3);
+        
         List<String> authors = new ArrayList<String>(); 
         authors.add("LTK");
         Media book1 = new Book(1, "The Jungle Book", "Adventure", 24.99f, authors);
@@ -39,8 +45,11 @@ public class Aims {
         tracks.add(track2);
         Media cd1 = new CompactDisc(1, "The Queens Classic", "Rock", 29.99f, 58, "LTK", "The Queens", tracks);
         anOrder.addMedia(cd1);
-
-        anOrder.removeMedia(dvd1);
+        
+        java.util.Collections.sort(test, Media.COMPARE_BY_TITLE_COST);
+        for (Media m:test) {
+            System.out.println(m);
+        }
         //print out total cost
         anOrder.printList();
     }
