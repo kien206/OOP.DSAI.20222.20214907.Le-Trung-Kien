@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Media {
-    private int id;
-    private String title;
-    private String category;
-    private float cost;
+    protected int id;
+    protected String title;
+    protected String category;
+    protected float cost;
     List<Media> mediae = new ArrayList<Media>();
 
     public int getId() {

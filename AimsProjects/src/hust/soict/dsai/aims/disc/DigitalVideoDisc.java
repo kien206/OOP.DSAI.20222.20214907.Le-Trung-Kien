@@ -6,6 +6,7 @@ import hust.soict.dsai.aims.media.Playable;
 public class DigitalVideoDisc extends Disc implements Playable {
     private String director;
     private int length;
+    
     private static int nbDigitalVideoDisc = 0;
     
     public void setDirector(String director) {
@@ -24,31 +25,31 @@ public class DigitalVideoDisc extends Disc implements Playable {
     }
 
     public DigitalVideoDisc(String title) {
-        super();
+        super(title);
         nbDigitalVideoDisc += 1;
         this.setId(nbDigitalVideoDisc);
     }
 
     public DigitalVideoDisc(String title, String category , float cost) {
-        super();
+        super(title, category, cost);
         nbDigitalVideoDisc += 1;
         this.setId(nbDigitalVideoDisc);
     }
     
     public DigitalVideoDisc(String title, String category, String director, float cost) {
-        super();
+        super(title, category, director, cost);
         nbDigitalVideoDisc += 1;
         this.setId(nbDigitalVideoDisc);
     }
     
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        super();
+        super(title, category, director, length, cost);
         nbDigitalVideoDisc += 1;
         this.setId(nbDigitalVideoDisc);
     }
 
     public String toString() {
-        return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + length + ": " + this.getCost() + "$"; 
+        return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getLength() + ": " + this.getCost() + "$"; 
     }
 
     public boolean isMatch(String titleToCompare) {

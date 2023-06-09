@@ -11,7 +11,10 @@ public class Book extends Media{
     }
 
     public Book(int id, String title, String category, float cost, List<String> authors) {
-        super();
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
         this.authors = authors;
     }
 
@@ -27,6 +30,10 @@ public class Book extends Media{
         if (authors.contains(authorName)) {
             authors.remove(authorName);
         }
+    }
+
+    public String toString() {
+        return "Book" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getCost();
     }
 
 }

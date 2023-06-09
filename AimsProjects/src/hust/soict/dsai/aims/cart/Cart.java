@@ -7,19 +7,16 @@ import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private List<Media> itemsOrdered = new ArrayList<Media>();
-    private List<Media> cartList = new ArrayList<Media>();
+    private List<Media> itemsOrdered = new ArrayList<>();
 
-    public void addMedia(Media media) {
-        if (!cartList.contains(media)) {
-            cartList.add(media);
-        }
+    public List<Media> addMedia(Media media) {
+        itemsOrdered.add(media);
+        return itemsOrdered;
     }
 
-    public void removeMedia(Media media) {
-        if (cartList.contains(media)) {
-            cartList.remove(media);
-        }
+    public List<Media> removeMedia(Media media) {
+        itemsOrdered.remove(media);
+        return itemsOrdered;
     }
 
     public float totalCost() {
@@ -34,10 +31,7 @@ public class Cart {
         System.out.println("***********************CART***********************");
         System.out.println("Items ordered: ");
         for (Media dvd: itemsOrdered) {
-            if (dvd != null) {
-                System.out.println(dvd.getId() + ". " + dvd.toString());
-            }
-          
+                System.out.println(dvd.toString());
         }
         System.out.println("Total cost: " + totalCost());
         System.out.println("***************************************************");
@@ -68,5 +62,6 @@ public class Cart {
             System.out.println("Item not found.");
         }
     }
+    
 }
 
