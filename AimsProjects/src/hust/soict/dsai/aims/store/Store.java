@@ -20,4 +20,14 @@ public class Store {
             itemsInStore.remove(media);
         }
     }
+
+    public List<Media> getItemsInStore() {
+        return itemsInStore;
+    }
+
+    public void display(){
+        for (Media media: itemsInStore){
+            System.out.println(media);
+        }
+    }
 }

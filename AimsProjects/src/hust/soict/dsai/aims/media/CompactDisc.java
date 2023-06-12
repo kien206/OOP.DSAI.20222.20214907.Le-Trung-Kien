@@ -26,6 +26,9 @@ public class CompactDisc extends Disc implements Playable {
         this.tracks = tracks;
     }
 
+    public CompactDisc(int id2, String title2, String category2, float cost2, String artist2) {
+    }
+
     public void addTrack(Track track) {
         if (!tracks.contains(track)) {
             tracks.add(track);

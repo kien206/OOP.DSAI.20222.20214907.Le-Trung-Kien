@@ -9,6 +9,10 @@ public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private List<Media> itemsOrdered = new ArrayList<>();
 
+    public List<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+
     public List<Media> addMedia(Media media) {
         itemsOrdered.add(media);
         return itemsOrdered;
