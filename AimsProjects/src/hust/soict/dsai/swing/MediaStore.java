@@ -69,23 +69,4 @@ public class MediaStore extends JPanel {
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
-
-    private class ButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // TODO Auto-generated method stub
-            String s = e.getActionCommand();
-            if (s.equals("Play")) {
-                JDialog playDialog = new JDialog();
-
-                JLabel l = new JLabel("Media play");
-
-                playDialog.add(l);
-                playDialog.setSize(100, 100);
-                playDialog.setVisible(true);
-            } else if (s.equals("Add to cart")) {
-                
-            }
-        }
-    }
 }
