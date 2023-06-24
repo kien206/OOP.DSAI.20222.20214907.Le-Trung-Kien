@@ -11,6 +11,7 @@ import javax.swing.*;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
+import hust.soict.dsai.aims.exception.PlayerException;
 
 public class MediaStore extends JPanel {
     private Media media;
@@ -50,11 +51,15 @@ public class MediaStore extends JPanel {
             container.add(playButton);
             playButton.addActionListener(new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(ActionEvent event) {
                     JDialog playDialog = new JDialog();
 
                     JLabel l = new JLabel("Media play");
-                    ((Playable)media).play();
+                    try {
+                        ((Playable)media).play();
+                    } catch (PlayerException e) {
+                        e.printStackTrace();
+                    }   
                     playDialog.add(l);
                     playDialog.setSize(100, 100);
                     playDialog.setVisible(true);

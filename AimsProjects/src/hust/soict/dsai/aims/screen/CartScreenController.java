@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import java.util.function.Predicate;
 import javafx.scene.control.Alert.AlertType;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.store.Store;
@@ -121,7 +122,12 @@ public class CartScreenController {
     @FXML
     void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
-        ((Playable)media).play();
+        try {
+            ((Playable)media).play();
+        } catch (PlayerException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML

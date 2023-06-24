@@ -1,13 +1,8 @@
 package hust.soict.dsai.aims.screen;
 
 import javax.swing.JFrame;
-import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.swing.StoreScreen;
-import java.util.List;
-import java.util.ArrayList;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;

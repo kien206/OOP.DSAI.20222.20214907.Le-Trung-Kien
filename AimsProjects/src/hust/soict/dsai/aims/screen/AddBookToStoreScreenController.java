@@ -1,7 +1,6 @@
 package hust.soict.dsai.aims.screen;
 
 import hust.soict.dsai.aims.media.*;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.swing.StoreScreen;
 import hust.soict.dsai.aims.cart.Cart;

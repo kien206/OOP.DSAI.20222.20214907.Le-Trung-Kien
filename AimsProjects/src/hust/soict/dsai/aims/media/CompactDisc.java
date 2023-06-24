@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hust.soict.dsai.aims.disc.Disc;
+import hust.soict.dsai.aims.exception.PlayerException;
 
 public class CompactDisc extends Disc implements Playable {
     private String artist;
@@ -53,10 +54,25 @@ public class CompactDisc extends Disc implements Playable {
     }
 
     @Override
-    public void play() {
+    public void play() throws PlayerException {
         // TODO Auto-generated method stub
-        for (Track track: tracks) {
-            track.play();
+        if (this.getLength() > 0) {
+            java.util.Iterator iter = tracks.iterator();
+            Track nextTrack;
+            while (iter.hasNext()) {
+                nextTrack = (Track) iter.next();
+                try {
+                    if (nextTrack.getLength() > 0) {
+                        nextTrack.play();
+                    } else {
+                        throw new PlayerException("ERROR: Track length is non-positive!");
+                    }
+                } catch (PlayerException e) {
+                    throw e;
+                }
+            }
+        } else {
+            throw new PlayerException("ERROR: CD length is non-positive!");
         }
     }
 }
