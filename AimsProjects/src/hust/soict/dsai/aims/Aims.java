@@ -262,7 +262,7 @@ public class Aims {
 					authors.add(au);
 				}
 				scanner.nextLine();
-				Book addBook = new Book(id, title, category, cost, authors);
+				Book addBook = new Book(title, category, cost, authors);
 				store.addMedia(addBook);
 				break;
 			case 2:
