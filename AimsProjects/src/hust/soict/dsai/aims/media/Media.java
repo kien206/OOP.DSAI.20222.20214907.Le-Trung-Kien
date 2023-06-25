@@ -53,9 +53,6 @@ public abstract class Media {
         } else {
             return false;
         }
-        
-        
-        
     }
 
     public String toString() {

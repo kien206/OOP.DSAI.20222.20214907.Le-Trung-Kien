@@ -17,7 +17,6 @@ public class GarbageCreator {
         }
         startTime = System.currentTimeMillis();
         String outputString = "";
-        
         for (byte b: inputBytes) {
             outputString += (char)b;
         }

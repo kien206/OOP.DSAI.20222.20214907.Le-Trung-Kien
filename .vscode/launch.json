@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Aims",
+            "request": "launch",
+            "mainClass": "hust.soict.dsai.aims.Aims",
+            "projectName": "OOP.DSAI.20222.20214907.Le-Trung-Kien_b8ed4359"
+        },
+        {
+            "type": "java",
             "name": "StoreScreen",
             "request": "launch",
             "mainClass": "hust.soict.dsai.swing.StoreScreen",

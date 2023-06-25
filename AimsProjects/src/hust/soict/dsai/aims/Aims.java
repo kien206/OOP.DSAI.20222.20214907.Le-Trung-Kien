@@ -17,7 +17,7 @@ public class Aims {
 	private static Scanner scanner = new Scanner(System.in);
 	public static Store store = new Store();
 	public static Cart cart = new Cart();
-	/* public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", 
 				"Animation", "Roger Allers", 87, 19.95f);
@@ -31,7 +31,7 @@ public class Aims {
 				"Animation", 18.99f);
 		store.addMedia(dvd3);
 		showMenu();	
-	}*/
+	}
 	
 	public static void showMenu() {
 		System.out.println("AIMS: ");
