@@ -25,7 +25,7 @@ public class CartTest {
 
         List<String> authors = new ArrayList<String>();
         authors.add("LTK");
-        Book book1 = new Book(1, "Sherlock Holmes", "Thriller", 20.99f, authors);
+        Book book1 = new Book("Sherlock Holmes", "Thriller", 20.99f, authors);
         cart.addMedia(book1);
 
         cart.toString();

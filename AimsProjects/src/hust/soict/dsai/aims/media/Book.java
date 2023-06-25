@@ -5,17 +5,18 @@ import java.util.List;
 
 public class Book extends Media{
     private List<String> authors = new ArrayList<String>();
+    private static int id = 0;
 
     public Book() {
         
     }
 
-    public Book(int id, String title, String category, float cost, List<String> authors) {
-        this.id = id;
+    public Book(String title, String category, float cost, List<String> authors) {
         this.title = title;
         this.category = category;
         this.cost = cost;
         this.authors = authors;
+        id++;
     }
 
     public void addAuthor(String authorName) {
@@ -33,7 +34,7 @@ public class Book extends Media{
     }
 
     public String toString() {
-        return "Book" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getCost();
+        return "Book" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getCost() + "$";
     }
 
 }

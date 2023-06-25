@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hust.soict.dsai.aims.disc.Disc;
+import hust.soict.dsai.aims.exception.PlayerException;
 
 public class CompactDisc extends Disc implements Playable {
     private String artist;
@@ -14,9 +15,9 @@ public class CompactDisc extends Disc implements Playable {
         return artist;
     }
 
-    public CompactDisc(int id, String title, String category, float cost, int length, String director, String artist,
+    public CompactDisc(int id, String title, String category, float cost, String director, String artist,
             List<Track> tracks) {
-        super(id, title, category, cost, length, director);
+        super(id, title, category, cost, 0, director);
         this.artist = artist;
         this.tracks = tracks;
     }
@@ -26,7 +27,7 @@ public class CompactDisc extends Disc implements Playable {
         this.tracks = tracks;
     }
 
-    public CompactDisc(int id2, String title2, String category2, float cost2, String artist2) {
+    public CompactDisc(int id, String title, String category, float cost, String artist) {
     }
 
     public void addTrack(Track track) {
@@ -53,10 +54,25 @@ public class CompactDisc extends Disc implements Playable {
     }
 
     @Override
-    public void play() {
+    public void play() throws PlayerException {
         // TODO Auto-generated method stub
-        for (Track track: tracks) {
-            track.play();
+        if (this.getLength() > 0) {
+            java.util.Iterator iter = tracks.iterator();
+            Track nextTrack;
+            while (iter.hasNext()) {
+                nextTrack = (Track) iter.next();
+                try {
+                    if (nextTrack.getLength() > 0) {
+                        nextTrack.play();
+                    } else {
+                        throw new PlayerException("ERROR: Track length is non-positive!");
+                    }
+                } catch (PlayerException e) {
+                    throw e;
+                }
+            }
+        } else {
+            throw new PlayerException("ERROR: CD length is non-positive!");
         }
     }
 }

@@ -4,28 +4,31 @@ import java.util.List;
 
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
+import javafx.collections.*;
 
 public class Cart {
-    public static final int MAX_NUMBERS_ORDERED = 20;
-    private List<Media> itemsOrdered = new ArrayList<>();
+    public int cartSize = 0;
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
-    public List<Media> getItemsOrdered() {
+    public ObservableList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
 
     public List<Media> addMedia(Media media) {
         itemsOrdered.add(media);
+        cartSize++;
         return itemsOrdered;
     }
 
     public List<Media> removeMedia(Media media) {
         itemsOrdered.remove(media);
+        cartSize--;
         return itemsOrdered;
     }
 
     public float totalCost() {
         float cost = 0; 
-        for (Media media: itemsOrdered) {
+        for (Media media : itemsOrdered) {
             cost += media.getCost();
         }
         return cost;
@@ -67,5 +70,14 @@ public class Cart {
         }
     }
     
+    public int size() {
+        return cartSize;
+    }
+
+    public void clearCart() {
+        for (Media media: itemsOrdered) {
+            itemsOrdered.remove(media);
+        }
+    } 
 }
 

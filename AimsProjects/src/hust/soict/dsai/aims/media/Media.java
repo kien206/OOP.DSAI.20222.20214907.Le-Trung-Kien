@@ -39,14 +39,20 @@ public abstract class Media {
     }
 
     public boolean equals(Object obj) {
-        
         if (obj instanceof Media) {
+            try {
             Media media = (Media) obj;
             return media.getTitle() == this.getTitle();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+                return false;
+            } catch (ClassCastException e) {
+                e.printStackTrace();
+                return false;
+            }
         } else {
             return false;
         }
-        
     }
 
     public String toString() {
